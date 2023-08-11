@@ -8,7 +8,7 @@ int main(int ac, char **av)
         int number = atoi(av[1]);
 
         if(number == 1)
-            printf("2");
+            printf("1");
         int i = 2;
         while(number >= i)
         {

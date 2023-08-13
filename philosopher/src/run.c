@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:26:38 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 15:03:57 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 15:40:06 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,24 @@ void	*run_thread(void *philo)
 			usleep(10000);
 	while (philo_tmp->game->die != 1)
 	{
-		take_fork(philo_tmp, philo_tmp->game);
-		take_eat(philo_tmp, philo_tmp->game);
-		take_sleep(philo_tmp, philo_tmp->game);
-		take_think(philo_tmp, philo_tmp->game);
+		if(take_fork(philo_tmp, philo_tmp->game))
+			return (0);
+		if(take_eat(philo_tmp, philo_tmp->game))
+			return (0);
+		if(take_sleep(philo_tmp, philo_tmp->game))
+			return (0);
+		if(take_think(philo_tmp, philo_tmp->game))
+			return (0);
 	}
 	return (0);
 }
 
 void	start_death_check(t_game *game)
 {
-	while (game->die != 1 && game->full_eat != 1)
+	while (game->die != 1)
 	{
 		starving_death(game);
-		// full_eat_death(game);
+		full_eat_death(game);
 	}
 }
 
@@ -66,13 +70,13 @@ void	starving_death(t_game *game)
 	i = 0;
 	while (game->die != 1 && i < game->philo_num)
 	{
-		// pthread_mutex_lock(&game->eating);
+		pthread_mutex_lock(&game->eating);
 		if ((get_time() - philo[i].last_eat_time) > (size_t)(game->time_to_die))
 		{
 			print_time("died", game, philo);
 			game->die = 1;
 		}
-		// pthread_mutex_unlock(&game->eating);
+		pthread_mutex_unlock(&game->eating);
 		i++;
 	}
 }
@@ -95,7 +99,6 @@ void	full_eat_death(t_game *game)
 		if (cnt == game->philo_num) 
 		{
 			game->die = 1;
-			game->full_eat = 1;
 		}
 	}
 }

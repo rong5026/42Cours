@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 14:47:32 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 15:35:34 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_game
 	int				time_to_sleep;
 	int				must_eat_num;
 	int				die;
-	int				full_eat;
 	long long		start_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	eating;
@@ -70,10 +69,11 @@ size_t	get_time(void);
 void	eat_or_sleep_time(t_game *game, size_t do_time);
 
 //action.c
-void	take_fork(t_philo *philo, t_game *game);
-void	take_eat(t_philo *philo, t_game *game);
-void	take_sleep(t_philo *philo, t_game *game);
-void	take_think(t_philo *philo, t_game *game);
+int		take_fork(t_philo *philo, t_game *game);
+int		take_eat(t_philo *philo, t_game *game);
+int		take_sleep(t_philo *philo, t_game *game);
+int		take_think(t_philo *philo, t_game *game);
+int		check_die_elem(t_game *game);
 
 //run.c
 int		start_philo(t_game *game, t_philo *philo);

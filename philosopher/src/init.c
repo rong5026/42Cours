@@ -20,7 +20,6 @@ void	init_input(t_game *game, int ac, char **av)
 	game->time_to_sleep = ft_atoi(av[4]);
     game->die = 0;
 	game->must_eat_num = 0;
-	game->full_eat = 0;
 	game->start_time = 0;
 	if (ac == 6)
 		game->must_eat_num = ft_atoi(av[5]);

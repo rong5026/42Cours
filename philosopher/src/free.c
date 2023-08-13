@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 00:24:19 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/08/13 15:32:05 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 16:10:57 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	unlock_and_destroy(t_game *game)
 
 void	malloc_free(t_game *game)
 {
-	free(game->philo);
-	free(game->fork);
+	if (game->philo)
+		free(game->philo);
+	if (game->fork)
+		free(game->fork);
 }

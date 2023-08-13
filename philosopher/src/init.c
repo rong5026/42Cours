@@ -41,8 +41,10 @@ int	init_mutex(t_game *game)
 			return (1);
 		i++;
 	}
-	pthread_mutex_init(&(game->printing), NULL);
-	pthread_mutex_init(&(game->eating), NULL);
+	if (pthread_mutex_init(&(game->printing), NULL))
+		return (1);
+	if (pthread_mutex_init(&(game->eating), NULL))
+		return (1);
 	return (0);
 }
 

@@ -14,10 +14,16 @@
 
 int	init_set(t_game *game)
 {
-	// 위에 리턴하기전에 오류문구 +  메모리 해제 
-	init_mutex(game);
-	init_philosopher(game);
-	
+	if(init_mutex(game))
+	{
+		unlock_and_destroy(game);
+		malloc_free(game);
+	}
+	if(init_philosopher(game))
+	{
+		unlock_and_destroy(game);
+		malloc_free(game);
+	}
     return (0);
 }
 
@@ -30,7 +36,8 @@ int	main(int ac, char **av)
 	init_input(&game, ac, av);
 	if (check_second_valid(&game, ac))
 		return (1);
-	init_set(&game);
+	if (init_set(&game))
+		return (1);
 	start_philo(&game, (&game)->philo);
 	return (0);
 }

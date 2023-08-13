@@ -6,50 +6,14 @@
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/12 22:29:25 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/08/13 00:34:29 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/08/13 16:18:06 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME = philo
-
-# INC 	= includes/philo.h
-
-# SRC		=	src/actions.c\
-# 			src/check_input.c\
-# 			src/init.c\
-# 			src/main.c\
-# 			src/run.c\
-# 			src/time.c\
-# 			src/utils.c\
-
-# CC 		= cc
-
-# FLAGS	= -Wall -Wextra -Werror -pthread
-
-# OBJS 	= $(SRC:.c=.o)
-
-# $(NAME): $(OBJS)
-# 	$(CC) $(FLAGS) $(SRC) -o $(NAME)
-
-# all: $(NAME) $(OBJS) $(INC)
-
-# %.o: %.c $(INC)
-# 		$(CC) $(FLAGS) -c $< -o $@
-
-# clean:
-# 	rm -rf $(OBJS)
-
-# fclean: clean
-# 	rm -rf $(NAME)
-
-# re: fclean all
-
-# .PHONY: all clean fclean re
+NAME = philo
 
 CC = cc
 CFLAGS = -Wextra -Werror -Wall
-
-NAME = philo
 
 DIR_H = ./includes/
 DIR_S = ./src/

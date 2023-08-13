@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 20:57:27 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 00:55:02 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ typedef struct s_game
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	eating;
 	pthread_mutex_t	printing;
+	pthread_mutex_t	die_mutex;
+	pthread_mutex_t philo_eat;
+	pthread_mutex_t	philo_alive;
 	t_philo			*philo;
 }				t_game;
 
@@ -67,7 +70,7 @@ int		init_philosopher(t_game *game);
 
 //time.c
 size_t	get_time(void);
-void	eat_or_sleep_time(t_game *game, size_t do_time);
+void	eat_or_sleep_time(size_t do_time);
 void	one_philo_time(t_game *game);
 
 //action.c
@@ -89,4 +92,10 @@ void    end_philo(t_game *game);
 void	end_thread(t_game *game);
 void	unlock_and_destroy(t_game *game);
 void	malloc_free(t_game *game);
+
+//get_set.c
+int		get_die(t_game *game);
+void	set_die(t_game *game, int sign);
+int 	get_alive(t_game *game, t_philo *philo);
+void	set_alive(t_game *game, t_philo *philo, int sign);
 #endif

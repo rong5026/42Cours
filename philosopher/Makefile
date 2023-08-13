@@ -6,19 +6,19 @@
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/12 22:29:25 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/08/13 16:18:06 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/08/14 01:04:21 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = cc
-CFLAGS = -Wextra -Werror -Wall
+CFLAGS = -Wextra -Werror -Wall #-g -fsanitize=thread
 
 DIR_H = ./includes/
 DIR_S = ./src/
 
-SRC =	action.c check_input.c free.c init.c main.c run.c time.c utils.c
+SRC =	action.c check_input.c free.c init.c main.c run.c time.c utils.c get_set.c
 
 SRCS = $(addprefix $(DIR_S), $(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 00:24:19 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/08/13 21:18:54 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 00:50:50 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	unlock_and_destroy(t_game *game)
 	pthread_mutex_destroy(&game->printing);
     pthread_mutex_unlock(&game->eating);
 	pthread_mutex_destroy(&game->eating);
+	pthread_mutex_unlock(&game->die_mutex);
+	pthread_mutex_destroy(&game->die_mutex);
+	pthread_mutex_unlock(&game->philo_eat);
+	pthread_mutex_destroy(&game->philo_eat);
+	pthread_mutex_unlock(&game->philo_alive);
+	pthread_mutex_destroy(&game->philo_alive);
 }
 
 void	malloc_free(t_game *game)

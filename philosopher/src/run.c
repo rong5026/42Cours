@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:26:38 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 16:19:38 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 17:19:51 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	*run_thread(void *philo)
 {
 	t_philo	*philo_tmp;
 
-	
 	philo_tmp = (t_philo *)philo;
 	if (philo_tmp->id % 2)
 			usleep(10000);

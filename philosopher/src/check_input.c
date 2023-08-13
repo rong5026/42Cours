@@ -60,10 +60,6 @@ int	check_second_valid(t_game *game, int ac)
 		printf("Invalid Input\n");
 		return (1);
 	}
-	else if (game->philo_num == 1)
-	{
-		return (1);
-	}
 	if (ac == 6)
 	{
 		if (game->must_eat_num < 0)

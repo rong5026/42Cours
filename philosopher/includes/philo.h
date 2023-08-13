@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 15:35:34 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 17:00:07 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <sys/time.h>
-
 
 
 typedef struct s_philo
@@ -67,6 +66,7 @@ int		init_philosopher(t_game *game);
 //time.c
 size_t	get_time(void);
 void	eat_or_sleep_time(t_game *game, size_t do_time);
+void	one_philo_time(t_game *game);
 
 //action.c
 int		take_fork(t_philo *philo, t_game *game);

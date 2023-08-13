@@ -6,14 +6,22 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:30:28 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 15:38:32 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 17:12:54 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
 int	take_fork(t_philo *philo, t_game *game)
-{
+{	
+	if (game->philo_num == 1)
+	{
+		pthread_mutex_lock(&game->fork[philo->left_fork]);
+		print_time("has taken a fork", game, philo);
+		one_philo_time(game);
+		pthread_mutex_unlock(&game->fork[philo->left_fork]);
+		return (check_die_elem(game));
+	}
 	pthread_mutex_lock(&game->fork[philo->left_fork]);
 	print_time("has taken a fork", game, philo);
 	pthread_mutex_lock(&game->fork[philo->right_fork]);

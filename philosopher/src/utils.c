@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:42:12 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 18:19:52 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 20:43:50 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,13 @@ long    ft_atoi(const char *str)
 
 void    print_time(char *str, t_game *game, t_philo *philo)
 {
+    size_t  time;
+
+    time = get_time();
     pthread_mutex_lock(&game->printing);
     if (!game->die)
     {
-       	printf("%lld ", get_time() - game->start_time);
+       	printf("%lu ", time - game->start_time);
 		printf("%d %s\n", (philo->id) + 1, str);
     }
      pthread_mutex_unlock(&game->printing);
@@ -86,8 +89,7 @@ void    print_dead(t_game *game, t_philo *philo)
         i++;
     }
     pthread_mutex_lock(&game->printing);
-    printf("%lld ", get_time() - game->start_time);
+    printf("%lu ", get_time() - game->start_time);
 	printf("%d %s\n", (philo->id) + 1, "died");
-   
     pthread_mutex_unlock(&game->printing);
 }

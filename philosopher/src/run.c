@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:26:38 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 18:21:21 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 20:43:49 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ void	*run_thread(void *philo)
 	t_philo	*philo_tmp;
 
 	philo_tmp = (t_philo *)philo;
+
 	if (philo_tmp->id % 2)
-			usleep(10000);
+			usleep(100);
 	while (philo_tmp->game->die != 1)
 	{
 		if(take_fork(philo_tmp, philo_tmp->game))
@@ -69,14 +70,12 @@ void	starving_death(t_game *game)
 	i = 0;
 	while (game->die != 1 && i < game->philo_num)
 	{
-		// pthread_mutex_lock(&game->eating);
 		if ((get_time() - philo[i].last_eat_time) > (size_t)(game->time_to_die))
 		{
 			game->die = 1;
 			print_dead(game, philo);
 			print_time("died", game, philo);
 		}
-		// pthread_mutex_unlock(&game->eating);
 		i++;
 	}
 }

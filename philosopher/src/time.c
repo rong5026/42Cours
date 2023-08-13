@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:33:31 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 17:11:36 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 20:51:56 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 size_t	get_time(void)
 {
 	struct timeval	current;
-
 	gettimeofday(&current, NULL);
 	return ((current.tv_sec * 1000) + (current.tv_usec / 1000));
 }

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 18:14:52 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 20:24:59 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_game
 	int				time_to_sleep;
 	int				must_eat_num;
 	int				die;
-	long long		start_time;
+	size_t			start_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	eating;
 	pthread_mutex_t	printing;

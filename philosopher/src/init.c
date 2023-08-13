@@ -61,6 +61,7 @@ int	init_philosopher(t_game *game)
 		game->philo[i].id = i;
 		game->philo[i].last_eat_time = 0;
 		game->philo[i].eat_cnt = 0;
+		game->philo[i].alive = 0;
 		game->philo[i].game = game;
 		game->philo[i].left_fork = i;
 		game->philo[i].right_fork = (i + 1) % game->philo_num;

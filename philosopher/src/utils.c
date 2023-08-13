@@ -5,37 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 15:42:12 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/08/12 14:49:05 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/08/11 15:42:12 by yeohong           #+#    #+#             */
+/*   Updated: 2023/08/13 00:59:42 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-int ft_atoi(const char *str)
-{
-    int i;
-    int sign;
-    int result;
-
-    i = 0;
-    sign = 1;
-    result = 0;
-    while (str[i] == 32 || (str[i]>=9 && str[i]<=13))
-        i++;
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if(str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while(str[i] >='0' && str[i] <='9')
-    {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return (sign * result);
-}
 
 
 int is_space(char ch)
@@ -54,6 +29,7 @@ int is_space(char ch)
         return (1);
     return (0);
 }
+
 int check_integer_atoi(long num)
 {
     if (num < -2147483648 || num > 2147483647)
@@ -61,6 +37,7 @@ int check_integer_atoi(long num)
     else
         return (1);
 }
+
 long    ft_atoi(const char *str)
 {
     size_t      i;
@@ -87,12 +64,13 @@ long    ft_atoi(const char *str)
     return ((int)(sign * result));
 }
 
-
-
-
-
-
-
-
-
-
+void    print_time(char *str, t_game *game, t_philo *philo)
+{
+    pthread_mutex_lock(&game->printing);
+    if (!game->die)
+    {
+       	printf("%lld ", get_time() - game->start_time);
+		printf("%d %s\n", (philo->id) + 1, str);
+    }
+     pthread_mutex_unlock(&game->printing);
+}

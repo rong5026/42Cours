@@ -12,10 +12,10 @@
 
 #include "../includes/philo.h"
 
-void	reak_check(void)
-{
-	system("leaks philo");
-}
+// void	reak_check(void)
+// {
+// 	system("leaks philo");
+// }
 
 int	init_set(t_game *game)
 {
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
-	atexit(reak_check);
+	// atexit(reak_check);
 	if (check_first_valid(ac, av))
 		return (1);
 	init_input(&game, ac, av);

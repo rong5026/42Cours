@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 17:00:07 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 18:14:52 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_philo
 	int				right_fork;
 	size_t			last_eat_time;
 	int				eat_cnt;
+	int				alive;
 	struct s_game	*game;
 	pthread_t		thread_id;
 }				t_philo;
@@ -57,6 +58,7 @@ int		is_space(char ch);
 int		check_integer_atoi(long num);
 long	ft_atoi(const char *str);
 void    print_time(char *str, t_game *game, t_philo *philo);
+void    print_dead(t_game *game, t_philo *philo);
 
 //init.c
 void	init_input(t_game *game, int ac, char **av);

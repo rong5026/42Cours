@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:30:28 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/13 17:12:54 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/13 18:24:41 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	take_fork(t_philo *philo, t_game *game)
 {	
+	if (philo->alive == 1)
+		return (1);
 	if (game->philo_num == 1)
 	{
 		pthread_mutex_lock(&game->fork[philo->left_fork]);
@@ -37,11 +39,17 @@ int	take_fork(t_philo *philo, t_game *game)
 
 int	take_eat(t_philo *philo, t_game *game)
 {
+	if (philo->alive == 1)
+	{
+		pthread_mutex_unlock(&game->fork[philo->left_fork]);
+		pthread_mutex_unlock(&game->fork[philo->right_fork]);
+		return (1);
+	}
 	philo->eat_cnt++;
-	pthread_mutex_lock(&game->eating);
+	// pthread_mutex_lock(&game->eating);
 	print_time("is eating", game, philo);
 	philo->last_eat_time = get_time();
-	pthread_mutex_unlock(&game->eating);
+	// pthread_mutex_unlock(&game->eating);
 	eat_or_sleep_time(game, game->time_to_eat);
 	pthread_mutex_unlock(&game->fork[philo->left_fork]);
 	pthread_mutex_unlock(&game->fork[philo->right_fork]);
@@ -50,6 +58,8 @@ int	take_eat(t_philo *philo, t_game *game)
 
 int	take_sleep(t_philo *philo, t_game *game)
 {
+	if (philo->alive == 1)
+		return (1);
 	print_time("is sleeping", game, philo);
 	eat_or_sleep_time(game, game->time_to_sleep);
 	return (check_die_elem(game));
@@ -57,6 +67,8 @@ int	take_sleep(t_philo *philo, t_game *game)
 
 int	take_think(t_philo *philo, t_game *game)
 {
+	if (philo->alive == 1)
+		return (1);
 	print_time("is thinking", game, philo);
 	return (check_die_elem(game));
 }

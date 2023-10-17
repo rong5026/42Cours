@@ -6,14 +6,14 @@
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/12 22:29:25 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/10/17 23:59:17 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/10/18 01:15:23 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = cc
-CFLAGS = -Wextra -Werror -Wall
+CFLAGS = -Wextra -Werror -Wall -g -fsanitize=thread
 
 DIR_H = ./includes/
 DIR_S = ./src/

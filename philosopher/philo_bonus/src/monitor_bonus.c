@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:13:20 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 00:17:14 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 00:50:37 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ int	check_die(t_philo *philo)
 		return (1);
 	}
 	sem_wait(philo->sem_last_eat);
-	time_gap = calc_timeval(&(philo->monitor->start_time), &curr_time) \
-													- philo->last_eat;
+	time_gap = get_time() - philo->last_eat;
 	sem_post(philo->sem_last_eat);
 	if (time_gap > philo->monitor->time_to_die)
 		return (1);
@@ -103,7 +102,7 @@ void	*monitor_full(void *arg)
 			sem_print("fail in gettimeofday", monitor);
 			return (0);
 		}
-		time_stamp = calc_timeval(&(monitor->start_time), &(curr_time));
+		time_stamp = get_time();
 		printf("%ldms\tall philosophers are full\n", time_stamp);
 		sem_post(monitor->sem_finish);
 	}

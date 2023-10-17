@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:51:09 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 00:20:52 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 01:32:24 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_monitor(t_monitor *monitor, int ac, char **av)
 	monitor->must_eat_flag = 0;
 	monitor->full_cnt = 0;
 	monitor->finish_type = 0;
+	monitor->start_time = 0;
 	if (ac == 6)
 	{
 		monitor->must_eat_num = ft_atoi(av[5]);
@@ -35,7 +36,7 @@ int	init_set(t_monitor *monitor)
 	if (init_philosopher(monitor))
 	{
 		sem_wait(monitor->sem_print);
-		printf("fail in generating philosophers\n");
+		printf("fail in making philosophers\n");
 		sem_post(monitor->sem_finish);
 		return (1);
 	}
@@ -53,10 +54,10 @@ int	init_sem(t_monitor *monitor)
 	monitor->sem_finish = sem_open("sem_finish", O_CREAT, 0644, 0);
 	sem_unlink("sem_print");
 	monitor->sem_print = sem_open("sem_print", O_CREAT, 0644, 1);
-	sem_unlink("sem_fork");
-	monitor->fork = sem_open("sem_fork", O_CREAT, 0644, monitor->philo_num);
 	sem_unlink("sem_full");
 	monitor->sem_full = sem_open("sem_full", O_CREAT, 0644, 0);
+	sem_unlink("sem_fork");
+	monitor->fork = sem_open("sem_fork", O_CREAT, 0644, monitor->philo_num);
 	return (0);
 }
 
@@ -66,8 +67,7 @@ int	init_philosopher(t_monitor *monitor)
 
 	sem_wait(monitor->sem_start);
 	i = 0;
-	if (gettimeofday(&(monitor->start_time), NULL) != 0)
-		return (1);
+	monitor->start_time = get_time();
 	while (i < monitor->philo_num)
 	{
 		monitor->philo[i].pid = fork();
@@ -87,7 +87,6 @@ int	init_philosopher(t_monitor *monitor)
 void	set_philo(t_monitor *monitor, t_philo *philo, int i)
 {
 	philo->id = i;
-	philo->last_eat = 0;
 	philo->cnt_eat = 0;
 	philo->monitor = monitor;
 	sem_unlink("sem_last_eat");

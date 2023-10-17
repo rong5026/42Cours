@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:42:20 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 00:20:34 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 00:55:32 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_monitor
 	long			time_to_sleep;
 	int				must_eat_flag;
 	int				must_eat_num;
-	struct timeval	start_time;
 	sem_t			*sem_start;
 	int				finish_type;
 	sem_t			*sem_finish;
@@ -52,6 +51,7 @@ typedef struct s_monitor
 	sem_t			*sem_print;
 	sem_t			*fork;
 	t_philo			*philo;
+	size_t			start_time;
 }	t_monitor;
 
 // check_input_bonus.c
@@ -100,4 +100,7 @@ long	ft_atoi(const char *str);
 long	calc_timeval(struct timeval *start, struct timeval *end);
 void	sleep_unit(t_monitor *monitor, long aim_time, \
 						struct timeval start_time, long unit);	
+
+void	eat_or_sleep_time(long do_time);
+size_t	get_time(void);
 #endif

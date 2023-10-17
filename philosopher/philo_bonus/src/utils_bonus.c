@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:25:27 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 00:21:46 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 00:53:25 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,24 @@ long	calc_timeval(struct timeval *start, struct timeval *end)
 	return (diff_time);
 }
 
-void	sleep_unit(t_monitor *monitor, long aim_time, \
-						struct timeval start_time, long unit)
+size_t	get_time(void)
 {
-	struct timeval	curr_time;
+	struct timeval	current;
+	size_t			result;
 
-	while (1)
-	{
-		if (gettimeofday(&(curr_time), NULL) != 0)
-		{
-			sem_print("fail in gettimeofday", monitor);
-			return ;
-		}
-		if (calc_timeval(&(start_time), &(curr_time)) >= aim_time)
-			break ;
-		usleep(unit);
-	}
+	gettimeofday(&current, NULL);
+	result = (size_t)(current.tv_sec * 1000) + (size_t)(current.tv_usec / 1000);
+	return (result);
+}
+
+void	eat_or_sleep_time(long do_time)
+{
+	size_t	time;
+
+	time = get_time();
+	usleep(do_time * 920);
+	while (get_time() < time + do_time)
+		usleep(do_time * 3);
 }
 
 int	is_space(char ch)

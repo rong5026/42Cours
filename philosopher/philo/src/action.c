@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
+/*   By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:30:28 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/14 00:55:44 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 12:09:17 by yeohong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	take_sleep(t_philo *philo, t_game *game)
 
 int	take_think(t_philo *philo, t_game *game)
 {
-	if (get_alive(game, philo)== 1 || get_die(game) == 1)
+	if (get_alive(game, philo) == 1 || get_die(game) == 1)
 		return (1);
 	print_time("is thinking", game, philo);
 	return (check_die_elem(game));

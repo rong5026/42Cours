@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
+#    By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/12 22:29:25 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/08/14 01:04:21 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/08/14 12:15:30 by yeohong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 CC = cc
-CFLAGS = -Wextra -Werror -Wall #-g -fsanitize=thread
+CFLAGS = -Wextra -Werror -Wall
 
 DIR_H = ./includes/
 DIR_S = ./src/

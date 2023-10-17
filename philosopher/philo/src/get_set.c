@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
+/*   By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 00:46:54 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/08/14 00:55:01 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 12:09:16 by yeohong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_die(t_game *game)
 {
-	int sign;
+	int	sign;
 
 	pthread_mutex_lock(&game->die_mutex);
 	sign = game->die;
@@ -29,9 +29,9 @@ void	set_die(t_game *game, int sign)
 	pthread_mutex_unlock(&game->die_mutex);
 }
 
-int get_alive(t_game *game, t_philo *philo)
+int	get_alive(t_game *game, t_philo *philo)
 {
-    int sign;
+	int	sign;
 
 	pthread_mutex_lock(&game->philo_alive);
 	sign = philo->alive;

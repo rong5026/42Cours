@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
+/*   By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:26:38 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/14 00:59:31 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 12:15:54 by yeohong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	start_philo(t_game *game, t_philo *philo)
 {
 	int		i;
+	void	*tmp;
 
 	i = 0;
 	game->start_time = get_time();
@@ -23,7 +24,8 @@ int	start_philo(t_game *game, t_philo *philo)
 		pthread_mutex_lock(&game->eating);
 		philo[i].last_eat_time = get_time();
 		pthread_mutex_unlock(&game->eating);
-		if (pthread_create(&philo[i].thread_id, NULL, run_thread, (void *)&(philo[i])))
+		tmp = (void *)&(philo[i]);
+		if (pthread_create(&philo[i].thread_id, NULL, run_thread, tmp))
 			return (1);
 		i++;
 	}
@@ -37,18 +39,17 @@ void	*run_thread(void *philo)
 	t_philo	*philo_tmp;
 
 	philo_tmp = (t_philo *)philo;
-
 	if (philo_tmp->id % 2)
-			usleep(1000);
+		usleep(1000);
 	while (get_die(philo_tmp->game) != 1)
 	{	
-		if(take_fork(philo_tmp, philo_tmp->game))
+		if (take_fork(philo_tmp, philo_tmp->game))
 			return (0);
-		if(take_eat(philo_tmp, philo_tmp->game))
+		if (take_eat(philo_tmp, philo_tmp->game))
 			return (0);
-		if(take_sleep(philo_tmp, philo_tmp->game))
+		if (take_sleep(philo_tmp, philo_tmp->game))
 			return (0);
-		if(take_think(philo_tmp, philo_tmp->game))
+		if (take_think(philo_tmp, philo_tmp->game))
 			return (0);
 	}
 	return (0);
@@ -58,7 +59,7 @@ void	start_death_check(t_game *game)
 {
 	if (game->must_eat_num != -1)
 	{
-		while (get_die(game)!= 1)
+		while (get_die(game) != 1)
 		{
 			starving_death(game);
 			full_eat_death(game);
@@ -75,8 +76,8 @@ void	start_death_check(t_game *game)
 
 void	starving_death(t_game *game)
 {
-	int i;
-	t_philo *philo;
+	int		i;
+	t_philo	*philo;
 
 	philo = game->philo;
 	i = 0;
@@ -87,6 +88,7 @@ void	starving_death(t_game *game)
 		{
 			set_die(game, 1);
 			print_dead(game, philo);
+			pthread_mutex_unlock(&game->eating);
 			break ;
 		}
 		pthread_mutex_unlock(&game->eating);
@@ -111,10 +113,9 @@ void	full_eat_death(t_game *game)
 			pthread_mutex_unlock(&game->philo_eat);
 			i++;
 		}
-		if (cnt == game->philo_num) 
+		if (cnt == game->philo_num)
 		{
 			set_die(game, 1);
 		}
-		
 	}
 }

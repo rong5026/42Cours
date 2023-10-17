@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
+/*   By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 15:33:31 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/14 00:50:48 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 12:15:54 by yeohong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ size_t	get_time(void)
 {
 	struct timeval	current;
 	size_t			result;
-	
+
 	gettimeofday(&current, NULL);
 	result = (size_t)(current.tv_sec * 1000) + (size_t)(current.tv_usec / 1000);
 	return (result);
 }
 
-
 void	eat_or_sleep_time(size_t do_time)
 {
 	size_t	time;
-	
+
 	time = get_time();
 	usleep(do_time * 920);
 	while (get_time() < time + do_time)

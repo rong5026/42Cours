@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
+/*   By: yeohong <yeohong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:43:39 by yeohong           #+#    #+#             */
-/*   Updated: 2023/08/14 00:55:02 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/08/14 11:29:14 by yeohong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <sys/time.h>
-
 
 typedef struct s_philo
 {
@@ -45,11 +44,10 @@ typedef struct s_game
 	pthread_mutex_t	eating;
 	pthread_mutex_t	printing;
 	pthread_mutex_t	die_mutex;
-	pthread_mutex_t philo_eat;
+	pthread_mutex_t	philo_eat;
 	pthread_mutex_t	philo_alive;
 	t_philo			*philo;
 }				t_game;
-
 
 //check_input.c
 int		check_first_valid(int ac, char **av);
@@ -60,8 +58,8 @@ int		check_second_valid(t_game *game, int ac);
 int		is_space(char ch);
 int		check_integer_atoi(long num);
 long	ft_atoi(const char *str);
-void    print_time(char *str, t_game *game, t_philo *philo);
-void    print_dead(t_game *game, t_philo *philo);
+void	print_time(char *str, t_game *game, t_philo *philo);
+void	print_dead(t_game *game, t_philo *philo);
 
 //init.c
 void	init_input(t_game *game, int ac, char **av);
@@ -88,7 +86,7 @@ void	starving_death(t_game *game);
 void	full_eat_death(t_game *game);
 
 //free.c
-void    end_philo(t_game *game);
+void	end_philo(t_game *game);
 void	end_thread(t_game *game);
 void	unlock_and_destroy(t_game *game);
 void	malloc_free(t_game *game);
@@ -96,6 +94,6 @@ void	malloc_free(t_game *game);
 //get_set.c
 int		get_die(t_game *game);
 void	set_die(t_game *game, int sign);
-int 	get_alive(t_game *game, t_philo *philo);
+int		get_alive(t_game *game, t_philo *philo);
 void	set_alive(t_game *game, t_philo *philo, int sign);
 #endif

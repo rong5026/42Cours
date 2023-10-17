@@ -29,7 +29,7 @@ int	check_first_valid(int ac, char **av)
 			printf("Argument must be a number\n");
 			return (1);
 		}
-		if (ft_atoi(av[i])  < 0)
+		if (ft_atoi(av[i]) < 0)
 		{
 			printf("Invalid argument\n");
 			return (1);
@@ -68,7 +68,7 @@ int	check_second_valid(t_game *game, int ac)
 			return (1);
 		}
 		else if (game->must_eat_num == 0)
-			return (1);	
+			return (1);
 	}
 	return (0);
 }

@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/12 22:29:25 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/10/17 23:59:17 by hong-yeongh      ###   ########.fr        #
+#    Created: 2023/10/17 22:41:49 by hong-yeongh       #+#    #+#              #
+#    Updated: 2023/10/18 00:22:30 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo
+NAME = philo_bonus
 
 CC = cc
 CFLAGS = -Wextra -Werror -Wall
@@ -18,7 +18,8 @@ CFLAGS = -Wextra -Werror -Wall
 DIR_H = ./includes/
 DIR_S = ./src/
 
-SRC =	action.c check_input.c free.c init.c main.c run.c time.c utils.c get_set.c
+
+SRC = main_bonus.c check_input_bonus.c init_bonus.c monitor_bonus.c run_bonus.c message_bonus.c action_bonus.c free_bonus.c utils_bonus.c
 
 SRCS = $(addprefix $(DIR_S), $(SRC))
 

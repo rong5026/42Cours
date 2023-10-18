@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:13:20 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/19 00:30:21 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/19 00:49:37 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ int	starving_death(t_philo *philo)
 		sem_wait(philo->monitor->sem_last_eat);
 		if ((get_time() - philo->last_eat) > (size_t)(philo->monitor->time_to_die))
 		{
-			// sem_post(philo->monitor->sem_last_eat);
 			// sem_wait(philo->monitor->sem_finish_type);
-			philo->monitor->finish_type = DIE;
+			// philo->monitor->finish_type = DIE;
 			// sem_post(philo->monitor->sem_finish_type);
 			print_finish_state(philo);
 			sem_wait(philo->monitor->sem_print); // 죽고나서 출력 막기
@@ -76,9 +75,8 @@ int	full_eat_death(t_philo *philo)
 		sem_wait(philo->monitor->sem_cnt_eat);
 		if (philo->cnt_eat >= philo->monitor->must_eat_num)
 		{
-			// sem_post(philo->monitor->sem_cnt_eat);
 			// sem_wait(philo->monitor->sem_finish_type);
-			philo->monitor->finish_type = FULL;
+			// philo->monitor->finish_type = FULL;
 			// sem_post(philo->monitor->sem_finish_type);
 			sem_wait(philo->monitor->sem_print); // 죽고나서 출력 막기
 			exit(1);

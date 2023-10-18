@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:46:02 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/19 00:35:33 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/19 00:47:04 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	reak_check(void)
 
 int	start_philo(t_monitor *monitor)
 {
-	atexit(reak_check);
+	// atexit(reak_check);
 	int	i;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:23:40 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 00:54:58 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 16:56:19 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	print_take_fork_state(t_philo *philo)
 {
 	long			time_stamp;
 
+	sem_wait(philo->monitor->sem_start);
 	time_stamp = get_time() - philo->monitor->start_time;
+	sem_post(philo->monitor->sem_start);
 	sem_wait(philo->monitor->sem_print);
 	printf("%ldms\t%d\thas taken a fork\n", time_stamp, philo->id + 1);
 	sem_post(philo->monitor->sem_print);
@@ -27,7 +29,9 @@ int	print_eat_state(t_philo *philo)
 {
 	long			time_stamp;
 
+	sem_wait(philo->monitor->sem_start);
 	time_stamp = get_time() - philo->monitor->start_time;
+	sem_post(philo->monitor->sem_start);
 	sem_wait(philo->monitor->sem_print);
 	printf("%ldms\t%d\tis eating\n", time_stamp, philo->id + 1);
 	sem_post(philo->monitor->sem_print);
@@ -38,7 +42,9 @@ int	print_sleep_state(t_philo *philo)
 {
 	long			time_stamp;
 
+	sem_wait(philo->monitor->sem_start);
 	time_stamp = get_time() - philo->monitor->start_time;
+	sem_post(philo->monitor->sem_start);
 	sem_wait(philo->monitor->sem_print);
 	printf("%ldms\t%d\tis sleeping\n", time_stamp, philo->id + 1);
 	sem_post(philo->monitor->sem_print);
@@ -49,7 +55,11 @@ int	print_think_state(t_philo *philo)
 {
 	long			time_stamp;
 
+	if (get_die(philo->monitor) != ALIVE)
+		return (1);
+	sem_wait(philo->monitor->sem_start);
 	time_stamp = get_time() - philo->monitor->start_time;
+	sem_post(philo->monitor->sem_start);
 	sem_wait(philo->monitor->sem_print);
 	printf("%ldms\t%d\tis thinking\n", time_stamp, philo->id + 1);
 	sem_post(philo->monitor->sem_print);
@@ -60,8 +70,11 @@ int	print_finish_state(t_philo *philo)
 {
 	long			time_stamp;
 
+	sem_wait(philo->monitor->sem_start);
 	time_stamp = get_time() - philo->monitor->start_time;
+	sem_post(philo->monitor->sem_start);
 	sem_wait(philo->monitor->sem_print);
 	printf("%ldms\t%d\tis died\n", time_stamp, philo->id + 1);
+	sem_post(philo->monitor->sem_print);
 	return (1);
 }

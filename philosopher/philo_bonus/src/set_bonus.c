@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   message_bonus.c                                    :+:      :+:    :+:   */
+/*   set_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 23:20:05 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 01:58:47 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/10/18 11:07:12 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/10/18 17:42:05 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_bonus.h"
 
-void	sem_print(char *message, t_monitor *monitor)
+int	get_die(t_monitor *monitor)
 {
-	sem_wait(monitor->sem_print);
-	printf("%s\n", message);
-	sem_post(monitor->sem_print);
+	int	sign;
+
+	sem_wait(monitor->sem_finish_type);
+	sign = monitor->finish_type;
+	sem_post(monitor->sem_finish_type);
+	return (sign);
+}
+
+size_t	get_time(void)
+{
+	struct timeval	current;
+	size_t			result;
+
+	gettimeofday(&current, NULL);
+	result = (size_t)(current.tv_sec * 1000) + (size_t)(current.tv_usec / 1000);
+	return (result);
 }

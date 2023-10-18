@@ -6,20 +6,20 @@
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 22:41:49 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/10/18 01:16:01 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/10/18 17:51:29 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo_bonus
 
 CC = cc
-CFLAGS = -Wextra -Werror -Wall -g -fsanitize=thread
+CFLAGS = -Wextra -Werror -Wall # -g -fsanitize=thread
 
 DIR_H = ./includes/
 DIR_S = ./src/
 
 
-SRC = main_bonus.c check_input_bonus.c init_bonus.c monitor_bonus.c run_bonus.c message_bonus.c action_bonus.c free_bonus.c utils_bonus.c
+SRC = main_bonus.c check_input_bonus.c init_bonus.c monitor_bonus.c run_bonus.c message_bonus.c action_bonus.c free_bonus.c utils_bonus.c set_bonus.c 
 
 SRCS = $(addprefix $(DIR_S), $(SRC))
 

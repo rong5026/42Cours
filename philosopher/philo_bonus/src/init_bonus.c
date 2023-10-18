@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:51:09 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 17:56:45 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/19 00:08:39 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,6 @@ int	init_philosopher(t_monitor *monitor)
 		monitor->philo[i].last_eat = 0;
 		monitor->philo[i].cnt_eat = 0;
 		monitor->philo[i].monitor = monitor;
-		sem_unlink("sem_last_eat");
-		monitor->philo[i].sem_last_eat = sem_open("sem_last_eat", O_CREAT | O_EXCL, 0644, 1);
-		sem_unlink("sem_cnt_eat");
-		monitor->philo[i].sem_cnt_eat = sem_open("sem_cnt_eat", O_CREAT | O_EXCL, 0644, 1);
 		i++;
 	}
 	return (0);
@@ -61,21 +57,16 @@ int	init_philosopher(t_monitor *monitor)
 
 int	init_sem(t_monitor *monitor)
 {
-	sem_unlink("sem_start");
-	monitor->sem_start = sem_open("sem_start", O_CREAT, 0644, 1);
-	sem_unlink("sem_time_sleep");
-	monitor->sem_time_sleep = sem_open("sem_time_sleep", O_CREAT, 0644, 1);
-	sem_unlink("sem_time_eat");
-	monitor->sem_time_eat = sem_open("sem_time_eat", O_CREAT, 0644, 1);
-	sem_unlink("sem_time_die");
-	monitor->sem_time_die = sem_open("sem_time_die", O_CREAT, 0644, 1);
+	sem_unlink("sem_cnt_eat");
+	monitor->sem_cnt_eat = sem_open("sem_cnt_eat", O_CREAT, 0644, 1);
+	sem_unlink("sem_last_eat");
+	monitor->sem_last_eat = sem_open("sem_last_eat", O_CREAT, 0644, 1);
 	sem_unlink("sem_finish_type");
 	monitor->sem_finish_type = sem_open("sem_finish_type", O_CREAT, 0644, 1);
-	sem_unlink("sem_must_eat");
-	monitor->sem_must_eat = sem_open("sem_must_eat", O_CREAT, 0644, 1);
 	sem_unlink("sem_print");
 	monitor->sem_print = sem_open("sem_print", O_CREAT, 0644, 1);
 	sem_unlink("sem_fork");
 	monitor->fork = sem_open("sem_fork", O_CREAT, 0644, monitor->philo_num);
+	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:45:06 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 17:57:14 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/19 00:39:08 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	end_philo(t_monitor *monitor)
 	end_thread(monitor);
 	kill_process(monitor);
 	malloc_free(monitor);
-	free_monitor();
+	free_monitor(monitor);
 }
 
 void	end_thread(t_monitor *monitor)
@@ -36,31 +36,36 @@ void	end_thread(t_monitor *monitor)
 
 void	kill_process(t_monitor *monitor)
 {
-	int	i;
+	int i;
+	int	ret;
 
 	i = 0;
 	while (i < monitor->philo_num)
 	{
-		if (monitor->philo[i].pid > 0)
-			kill(monitor->philo[i].pid, SIGTERM);
-		else
+		waitpid(-1, &ret, 0);
+		if (ret != 0)
+		{
+			i = -1;
+			while (++i < monitor->philo_num)
+				kill(monitor->philo[i].pid, SIGTERM);
 			break ;
+		}
 		i++;
 	}
 }
 
-void	free_monitor(void)
+void	free_monitor(t_monitor *monitor)
 {
-	sem_unlink("sem_start");
-	sem_unlink("sem_time_die");
+	sem_close(monitor->sem_finish_type);
+	sem_close(monitor->sem_print);
+	sem_close(monitor->fork);
+	sem_close(monitor->sem_cnt_eat);
+	sem_close(monitor->sem_last_eat);
 	sem_unlink("sem_finish_type");
-	sem_unlink("sem_must_eat");
 	sem_unlink("sem_print");
 	sem_unlink("sem_fork");
-	sem_unlink("sem_last_eat");
 	sem_unlink("sem_cnt_eat");
-	sem_unlink("sem_time_eat");
-	sem_unlink("sem_time_sleep");
+	sem_unlink("sem_last_eat");
 }
 
 void	malloc_free(t_monitor *monitor)

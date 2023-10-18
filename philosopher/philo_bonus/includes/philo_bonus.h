@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:42:20 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/18 18:27:02 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/18 23:50:35 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ typedef struct s_philo
 {
 	pid_t				pid;
 	int					id;
-	sem_t				*sem_last_eat;
-	sem_t				*sem_cnt_eat;
 	long				last_eat;
 	int					cnt_eat;
 	pthread_t			death_check;
@@ -47,14 +45,11 @@ typedef struct s_monitor
 	int				must_eat_num;
 	int				full_cnt;
 	int				finish_type;
-	sem_t			*sem_start;
-	sem_t			*sem_time_die;
-	sem_t			*sem_time_sleep;
-	sem_t			*sem_time_eat;
 	sem_t			*sem_finish_type;
-	sem_t			*sem_must_eat;
 	sem_t			*sem_print;
 	sem_t			*fork;
+	sem_t			*sem_last_eat;
+	sem_t			*sem_cnt_eat;
 	t_philo			*philo;
 	size_t			start_time;
 }	t_monitor;
@@ -104,7 +99,7 @@ int		print_finish_state(t_philo *philo);
 void	end_philo(t_monitor *monitor);
 void	end_thread(t_monitor *monitor);
 void	kill_process(t_monitor *monitor);
-void	free_monitor(void);
+void	free_monitor(t_monitor *monitor);
 void	malloc_free(t_monitor *monitor);
 
 // utils_bonus.c

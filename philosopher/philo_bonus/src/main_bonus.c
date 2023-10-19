@@ -6,20 +6,19 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 22:46:02 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/10/19 00:47:04 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/10/19 09:40:57 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo_bonus.h"
 
-void	reak_check(void)
-{
-	system("leaks philo_bonus");
-}
+// void	reak_check(void)
+// {
+// 	system("leaks philo_bonus");
+// }
 
 int	start_philo(t_monitor *monitor)
 {
-	// atexit(reak_check);
 	int	i;
 
 	i = 0;
@@ -34,6 +33,7 @@ int	start_philo(t_monitor *monitor)
 		i++;
 	}
 	end_philo(monitor);
+	// atexit(reak_check);
 	return (0);
 }
 

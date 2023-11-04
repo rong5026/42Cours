@@ -6,12 +6,11 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:59:56 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/04 16:11:45 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/04 17:09:17 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdlib>
 
 using std::cout;
 using std::endl;

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/04 16:20:12 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/11/05 15:46:04 by hong-yeongh      ###   ########.fr        #
+#    Created: 2023/11/05 15:45:00 by hong-yeongh       #+#    #+#              #
+#    Updated: 2023/11/05 15:47:35 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes
 RM = rm -rf
 
-SRCS = srcs/Contact.cpp srcs/PhoneBook.cpp main.cpp
+SRCS = srcs/Account.cpp tests.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

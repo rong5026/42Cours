@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:24:06 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/04 19:36:52 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/04 19:44:49 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ int main(void)
             break;
         }
     }
-    return EXIT_SUCCESS;
+    return (EXIT_SUCCESS);
 }

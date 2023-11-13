@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:02:59 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 16:46:39 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/13 17:31:33 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int main(void)
 	zombi2->announce();
 	delete zombi2;
 
-	return 0;
+	return (0);
 }

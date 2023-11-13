@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/13 16:08:07 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/11/13 17:35:29 by hong-yeongh      ###   ########.fr        #
+#    Created: 2023/11/13 17:04:18 by hong-yeongh       #+#    #+#              #
+#    Updated: 2023/11/13 17:36:02 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = File
+NAME = Harl
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes
 RM = rm -rf
 
-SRCS = main.cpp
+SRCS = main.cpp srcs/Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

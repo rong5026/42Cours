@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:02:59 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 14:51:47 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/13 17:34:00 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int main(void)
     }
 	
     delete [] zombie_list;
-    return 0;
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:38:02 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 16:04:05 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/13 17:32:49 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int main()
         jim.attack();
     }
 
-    return 0;
+    return (0);
 }

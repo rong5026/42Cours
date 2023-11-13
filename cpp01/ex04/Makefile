@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/13 15:12:09 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/11/13 16:08:43 by hong-yeongh      ###   ########.fr        #
+#    Created: 2023/11/13 16:08:07 by hong-yeongh       #+#    #+#              #
+#    Updated: 2023/11/13 17:02:09 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Pointer
+NAME = File
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 RM = rm -rf
 
 SRCS = main.cpp

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:29:14 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 16:01:57 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/13 16:03:47 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ HumanB::~HumanB()
 {
 }
 
-void    HumanB::setWeapon( Weapon& weapon ) {
+void    HumanB::setWeapon( Weapon& weapon) {
     this->weapon = &weapon;
 }
 

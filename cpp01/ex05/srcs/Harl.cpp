@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:08:21 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 17:35:49 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/14 13:38:12 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,29 @@ void	Harl::error(void) {
     std::cout <<  "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-Harl::Harl()
+Harl::Harl(void)
 {
 }
 
-Harl::~Harl()
+Harl::~Harl(void)
 {
 }
 
 void	Harl::complain(std::string level)
 {
 	t_harl	funcs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string levels[4] = {"DEBUG","INFO", "WARNING","ERROR"};
+	std::string inputs[4] = {"DEBUG","INFO", "WARNING","ERROR"};
 	int	count = 0;
 	
-	for (size_t i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (level == levels[i])
+		if (level == inputs[i])
+		{
 			(this->*funcs[i])();
-		else
 			count++;
+		}
 	}
-	if (count == 4)
+
+	if (count == 0)
 		std::cout <<  "Invalid input." << std::endl;
 }

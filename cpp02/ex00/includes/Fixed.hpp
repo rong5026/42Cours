@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 15:37:55 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/14 13:38:16 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/14 14:52:53 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/15 21:59:12 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Weapon::Weapon(std::string type) : type(type)
-{
-}
+#include <iostream>
 
-Weapon::~Weapon(void)
-{
-}
+class Fixed {
 
-const	std::string &Weapon::getType(void) const
-{
-	return (this->type);
-}
+private:
+	int number;
+	static const int fractional_bits = 8;
+	
+public:
+	Fixed(void);
+	Fixed(const Fixed &source);
+	Fixed &operator=(const Fixed &source);
+	~Fixed(void);
+	int	getRawBits(void) const;
+	void	setRawBits(int const raw);
+}; 
 
-void	Weapon::setType(std::string type)
-{
-	this->type = type;
-}
+#endif

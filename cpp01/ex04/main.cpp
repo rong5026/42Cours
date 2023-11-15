@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:08:11 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 17:35:26 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/14 13:38:14 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char *av[])
 	std::string result_file;
 	std::string word1;
 	std::string word2;
-
 
 	if (ac != 4)
 	{

@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/13 11:03:01 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/11/14 13:38:26 by hong-yeongh      ###   ########.fr        #
+#    Created: 2023/11/14 14:52:15 by hong-yeongh       #+#    #+#              #
+#    Updated: 2023/11/15 21:57:43 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zombie
+NAME = Fixed
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes
 RM = rm -rf
 
-SRCS = srcs/zombieHorde.cpp srcs/Zombie.cpp main.cpp
+SRCS = main.cpp srcs/Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

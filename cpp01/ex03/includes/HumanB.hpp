@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:49 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 15:49:23 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/14 13:38:18 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ private:
 
 public:
     HumanB(std::string name);
-    ~HumanB();
+    ~HumanB(void);
     void    attack(void);
     void    setWeapon(Weapon &weapon);
+    const   std::string& getName(void) const;
 };
 
 #endif

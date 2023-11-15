@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:28:51 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/13 17:34:28 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/14 13:38:18 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ private:
 
 public:
     HumanA(std::string name, Weapon &weapon);
-    ~HumanA();
+    ~HumanA(void);
     void    attack(void);
+    const   std::string& getName(void) const;
 };
 
 #endif

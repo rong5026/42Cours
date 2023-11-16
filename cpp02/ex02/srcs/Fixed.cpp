@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 22:02:14 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/15 23:36:06 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/16 14:57:01 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,71 @@ bool    Fixed::operator!=(const Fixed &other) const {
 // 4개 연산자
 
 Fixed   Fixed::operator+(const Fixed &other) const {
-    return Fixed( this->toFloat() + other.toFloat() );
+    return Fixed(this->toFloat() + other.toFloat());
 }
 
 Fixed   Fixed::operator-(const Fixed &other) const {
-    return Fixed( this->toFloat() - other.toFloat() );
+    return Fixed(this->toFloat() - other.toFloat());
 }
 
 Fixed   Fixed::operator*(const Fixed &other) const {
-    return Fixed( this->toFloat() * other.toFloat() );
+    return Fixed(this->toFloat() * other.toFloat());
 }
 
 Fixed   Fixed::operator/(const Fixed &other) const {
-    return Fixed( this->toFloat() / other.toFloat() );
+    return Fixed(this->toFloat() / other.toFloat());
+}
+
+// 후위, 전위 연산자
+// 전위 증가
+Fixed   &Fixed::operator++(void) {
+    this->number += 1;
+    return (*this);
+}
+// 후위 증가
+Fixed   Fixed::operator++(int) {
+    Fixed tmp(*this);
+    this->number += 1;
+    return (tmp);
+}
+
+Fixed& Fixed::operator--(void) {
+    this->number -= 1;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed tmp(*this);
+    this->number -= 1;
+    return (tmp);
+}
+
+// 최대 최소
+
+Fixed   &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+}
+
+const   Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+}
+
+Fixed   &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
+}
+
+const   Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
 }

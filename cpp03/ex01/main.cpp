@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 20:42:24 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/17 21:42:49 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/18 00:48:47 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/18 01:27:24 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {

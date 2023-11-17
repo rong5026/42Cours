@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 20:41:42 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/18 00:50:58 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/18 00:49:05 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/18 01:06:40 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
     std::string	name;
     unsigned int	hit_point;
     unsigned int	energy_point;

@@ -6,24 +6,29 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:41:53 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/18 01:24:52 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/18 14:48:50 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void) : hit_point(10), energy_point(10), attack_damage(0) {
+	this->name = "ClapTrap";
+    std::cout << "ClapTrap " << this->name << " has been created." << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name) : hit_point(10), energy_point(10), attack_damage(0) {
 	this->name = name;
-    std::cout << this->name << " has been created." << std::endl;
+    std::cout << "ClapTrap" << this->name << " has been created." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &source) {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = source;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap& source) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap Copy assignment operator called" << std::endl;
 	if (this != &source) { // 자기 자신에 대한 할당을 확인
 		this->name = source.name;
 		this->hit_point = source.hit_point;
@@ -34,13 +39,13 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap& source) {
 
 }
 ClapTrap::~ClapTrap(void) {
-    std::cout << "ClapTrap is gone" << std::endl;
+    std::cout << "ClapTrap "  << this->name << " is gone" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->energy_point == 0 || this->hit_point == 0) {
-		std::cout << "No energy or hit_point!" << std::endl;
+		std::cout <<  "ClapTrap No energy or hit_point!" << std::endl;
 	}
 	else {
 		std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
@@ -64,7 +69,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->energy_point == 0 || this->hit_point == 0) {
-		std::cout << "No energy or hit_point!" << std::endl;
+		std::cout << "ClapTrap No energy or hit_point!" << std::endl;
 	}
 	else {
 		this->energy_point -= 1;

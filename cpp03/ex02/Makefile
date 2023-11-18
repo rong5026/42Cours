@@ -6,17 +6,17 @@
 #    By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 00:48:51 by hong-yeongh       #+#    #+#              #
-#    Updated: 2023/11/18 16:04:40 by hong-yeongh      ###   ########.fr        #
+#    Updated: 2023/11/18 16:26:15 by hong-yeongh      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes
 RM = rm -rf
 
-SRCS = main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp
+SRCS = main.cpp srcs/ClapTrap.cpp srcs/ScavTrap.cpp srcs/FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

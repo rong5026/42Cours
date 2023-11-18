@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 00:49:05 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/18 01:06:40 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/18 16:03:51 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ protected:
     unsigned int	attack_damage;
 
 public:
+	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &source);
 	ClapTrap& operator=(const ClapTrap &source);
-	~ClapTrap(void);
-
-	void	attack(const std::string& target);
+	virtual ~ClapTrap(void);
+	virtual void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-
+	void	showStatus(void);
 };
 
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 20:41:42 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/18 14:47:44 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/18 16:11:04 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/18 16:27:51 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
     std::string	name;
     unsigned int	hit_point;
     unsigned int	energy_point;
@@ -28,12 +28,11 @@ public:
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &source);
 	ClapTrap& operator=(const ClapTrap &source);
-	~ClapTrap(void);
-
-	void	attack(const std::string& target);
+	virtual ~ClapTrap(void);
+	virtual void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-
+	void	showStatus(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:06:31 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:50:29 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 17:11:44 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ int main() {
 	for (int i = 0; i < 4; i++) {
 		delete animal[i];
 	}
+
+	Dog *tmp = new Dog();
+
+	std::cout << "------------------------------" << std::endl;
+	for (int i = 0 ; i < 4 ; i++) {
+		std::cout << tmp->getBrain()->getIdeas(i) << std::endl;
+	}
+	std::cout << "------------------------------" << std::endl;
+
+	delete tmp;
 
 	return 0;
 

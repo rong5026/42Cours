@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:08:21 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:14:03 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 17:11:35 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Animal	&Animal::operator=(const Animal& source) {
 }
 
 Animal::~Animal(void) {
-    std::cout << this->type << " is gone" << std::endl;
+    std::cout << "Animal is gone" << std::endl;
 }
 
 void Animal::makeSound(void) const {

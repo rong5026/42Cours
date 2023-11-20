@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:09:28 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:20:42 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 16:42:08 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
     Animal(void);
     Animal(std::string type);
     Animal(const Animal &source);
-    Animal&	operator=(const Animal &source);
+    Animal& operator=(const Animal &source);
     virtual	~Animal(void);
 
     virtual void	makeSound(void) const;

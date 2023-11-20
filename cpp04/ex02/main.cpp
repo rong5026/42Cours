@@ -6,39 +6,34 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:06:31 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/20 13:52:25 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/19 23:50:29 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int main() {
-	const Animal* meta = new Animal(); 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl; 
-	std::cout << i->getType() << " " << std::endl; 
-	j->makeSound(); //will output the cat sound! 
-	i->makeSound();
-    meta->makeSound();
-
-	const WrongAnimal* tmp = new WrongAnimal();
-	const WrongAnimal* tmp2 = new WrongCat();
-
-	std::cout << tmp->getType() << " " << std::endl; 
-	std::cout << tmp2->getType() << " " << std::endl; 
-
-	tmp->makeSound();
-	tmp2->makeSound();
-
-	delete meta;
-	delete i;
-	delete j;
-	delete tmp;
-	delete tmp2;
+	// const Animal* j = new Dog(); 
+	// const Animal* i = new Cat();
 	
-	return 0; 
+	// delete j;//should not create a leak 
+	// delete i;
+	
+	// return 0; 
+
+	Animal* animal[4];
+
+	animal[0] = new Dog();
+	animal[1] = new Dog();
+	animal[2] = new Cat();
+	animal[3] = new Cat();
+
+	for (int i = 0; i < 4; i++) {
+		delete animal[i];
+	}
+
+	return 0;
+
 }

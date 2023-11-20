@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 22:08:58 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/20 17:11:25 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/19 22:08:21 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/19 23:14:03 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 
-WrongAnimal::WrongAnimal(void) {
-	this->type = "WrongAnimal";
+Animal::Animal(void) {
+	this->type = "Animal";
     std::cout << this->type << " has been created." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type) {
+Animal::Animal(std::string type) {
 	this->type = type;
     std::cout << this->type << " has been created." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &source) {
-    std::cout << "WrongAnimal Copy constructor called" << std::endl;
+Animal::Animal(const Animal &source) {
+    std::cout << "Animal Copy constructor called" << std::endl;
     *this = source;
 }
 
-WrongAnimal	&WrongAnimal::operator=(const WrongAnimal& source) {
-	std::cout << "WrongAnimal Copy assignment operator called" << std::endl;
+Animal	&Animal::operator=(const Animal& source) {
+	std::cout << "Animal Copy assignment operator called" << std::endl;
 	if (this != &source) { // 자기 자신에 대한 할당을 확인
 		this->type = source.type;
 	}
     return (*this);
 }
 
-WrongAnimal::~WrongAnimal(void) {
+Animal::~Animal(void) {
     std::cout << this->type << " is gone" << std::endl;
 }
 
-void WrongAnimal::makeSound(void) const {
-    std::cout << "WrongAnimal makeSound called!!!" << std::endl;
+void Animal::makeSound(void) const {
+    std::cout << "Animal makeSound called" << std::endl;
 }
 
-std::string	WrongAnimal::getType(void) const {
+std::string	Animal::getType(void) const {
     return (this->type);
 }

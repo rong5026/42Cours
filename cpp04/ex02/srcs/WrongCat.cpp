@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 22:08:25 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/20 17:11:27 by hong-yeongh      ###   ########.fr       */
+/*   Created: 2023/11/19 22:08:54 by hong-yeongh       #+#    #+#             */
+/*   Updated: 2023/11/19 22:37:06 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(void) {
-	this->type = "Cat";
-    this->brain = new Brain();
+WrongCat::WrongCat(void) {
+	this->type = "WrongCat";
     std::cout  << this->type << " has been created." << std::endl;
 }
 
-Cat::Cat(const Cat &source) {
-    std::cout << "Cat Copy constructor called" << std::endl;
+WrongCat::WrongCat(const WrongCat &source) {
+    std::cout << "WrongCat Copy constructor called" << std::endl;
     *this = source;
 }
 
-Cat	&Cat::operator=(const Cat& source) {
-	std::cout << "Cat Copy assignment operator called" << std::endl;
+WrongCat	&WrongCat::operator=(const WrongCat& source) {
+	std::cout << "WrongCat Copy assignment operator called" << std::endl;
 	if (this != &source) { // 자기 자신에 대한 할당을 확인
 		this->type = source.type;
-        delete this->brain; 
-        this->brain = new Brain(*source.brain);
 	}
     return (*this);
 }
 
-Cat::~Cat(void) {
-    delete this->brain;
+WrongCat::~WrongCat(void) {
     std::cout << this->type << " is gone" << std::endl;
 }
 
-void Cat::makeSound(void) const {
-    std::cout << "Meow.." << std::endl;
-}
-
-Brain   *Cat::getBrain(void) const {
-	return (this->brain);
+void WrongCat::makeSound(void) const {
+    std::cout << "MMMMMMMMMeHHHHHHHow.." << std::endl;
 }

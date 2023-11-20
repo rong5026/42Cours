@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:10:07 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:50:38 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 16:47:16 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ private:
 public:
     Brain(void);
     Brain(const Brain &source);
-    Brain& operator=(const Brain& source);
+    Brain&  operator=(const Brain& source);
     ~Brain(void);
+
+    std::string getIdeas(int index) const;
 
 };
  

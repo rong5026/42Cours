@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 22:07:42 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:50:20 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 17:20:51 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
     ~Dog(void);
 
     void	makeSound(void) const;
+    Brain   *getBrain(void) const;
 };
 
 #endif

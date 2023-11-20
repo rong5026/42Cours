@@ -6,7 +6,7 @@
 /*   By: hong-yeonghwan <hong-yeonghwan@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:10:19 by hong-yeongh       #+#    #+#             */
-/*   Updated: 2023/11/19 23:50:36 by hong-yeongh      ###   ########.fr       */
+/*   Updated: 2023/11/20 17:11:32 by hong-yeongh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,8 @@ Brain	&Brain::operator=(const Brain& source) {
 
 Brain::~Brain(void) {
    std::cout << "brain is gone" << std::endl;
+}
+
+std::string Brain::getIdeas(int index) const {
+	return (this->ideas[index]);
 }
